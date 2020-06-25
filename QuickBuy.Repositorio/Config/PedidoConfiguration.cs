@@ -9,13 +9,11 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Pedido> builder)
         {
-            builder.HasKey(p => p.Id);
+            builder.HasKey(p => p.PedidoId);
 
             builder.Property(p => p.DataPedido)
                 .IsRequired();
-
-            builder.Property(p => p.UsuarioId)
-                 .IsRequired();
+            
 
             builder.Property(p => p.DataPrevisaoEntrega)
                .IsRequired();
@@ -35,9 +33,10 @@ namespace QuickBuy.Repositorio.Config
             builder.Property(p => p.NumeroEndereco)
          .IsRequired();
 
-          builder.HasOne(p => p.FormaPagamento);
-   
 
+          builder.HasOne(p => p.FormaPagamento);       
+
+          
 
         }
     }

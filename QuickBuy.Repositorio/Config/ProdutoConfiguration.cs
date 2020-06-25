@@ -10,7 +10,7 @@ namespace QuickBuy.Repositorio.Config
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
 
-            builder.HasKey(p => p.Id);
+            builder.HasKey(p => p.ProdutoId);
 
             builder.Property(p => p.Nome)
                 .IsRequired()
@@ -23,7 +23,7 @@ namespace QuickBuy.Repositorio.Config
             builder.Property(p => p.Preco)
                 .HasColumnType("decimal(19,4)")
                .IsRequired();
-            
+                
 
         }
     }

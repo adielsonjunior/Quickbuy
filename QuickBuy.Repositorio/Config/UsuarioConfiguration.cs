@@ -8,7 +8,7 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasKey(u => u.Id);
+            builder.HasKey(u => u.UsuarioId);
 
             builder.Property(u => u.Email)
                 .IsRequired()
@@ -22,14 +22,10 @@ namespace QuickBuy.Repositorio.Config
                .IsRequired()
                .HasMaxLength(50);
 
-
-            builder.Property(u => u.Pedidos)
-               .IsRequired()
-               .HasMaxLength(50);
-
             builder
                 .HasMany(u => u.Pedidos)
                 .WithOne(p => p.Usuario);
+               
         }
 
     }
