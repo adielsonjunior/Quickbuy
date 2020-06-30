@@ -8,7 +8,7 @@
     <input type="email" id="inputEmail"
            name="email" placeholder="Informe seu email"
            class="form-control mb-2"
-           [ngClass] ="{
+           [ngClass]="{
             'is-invalid': email.invalid && (email.dirty || email.touched),
            'is-valid': email.valid && (email.dirty || email.touched)
            }"
@@ -25,7 +25,7 @@
            name="senha" placeholder="Senha"
            class="form-control mb-2"
            [(ngModel)]="usuario.senha"
-           [ngClass] ="{
+           [ngClass]="{
             'is-invalid': senha.invalid && (senha.dirty || senha.touched),
            'is-valid': senha.valid && (senha.dirty || senha.touched)
            }"
@@ -36,9 +36,11 @@
         Senha é preenchimento obrigatório!
       </div>
     </div>
-
-
     <button class="btn btn-primary btn-block" type="submit" (click)="entrar()"> Entrar</button>
+    <div class="alert alert-danger" role="alert" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
   </form>
-  <img src="./assets/logo.jpg" />0
+  <img src="./assets/logo.jpg" />
 </div>
