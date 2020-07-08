@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-
+import { Component,OnInit } from "@angular/core";
+import { Produto } from "../modelos/Produto";
+import { ProdutoServico }  from "../servicos/produto/produto.servico" 
 @Component({
   selector: "app-produto",
   templateUrl: "./produto.component.html",
@@ -7,11 +8,30 @@ import { Component } from "@angular/core";
 })
 
 export class ProdutoComponent {
-  public produtoId: number;
-  public nome: string;
-  public preco: number;
+  public produto: Produto;
+
+  constructor(private produtoServico: ProdutoServico) {
+
+  }
 
 
+  ngOnInit(): void {
+    this.produto = new Produto();
+
+  }
+
+  public cadastrar() {
+    this.produtoServico.cadastrar(this.produto)
+      .subscribe(
+        produtoJson => {
+          console.log(produtoJson);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+
+  }
   public obterNome(): string {
     return "Sansung";
   }
