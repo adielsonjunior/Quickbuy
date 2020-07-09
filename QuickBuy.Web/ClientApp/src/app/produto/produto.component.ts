@@ -1,6 +1,7 @@
 import { Component,OnInit } from "@angular/core";
 import { Produto } from "../modelos/Produto";
-import { ProdutoServico }  from "../servicos/produto/produto.servico" 
+import { ProdutoServico } from "../servicos/produto/produto.servico"
+import { Router } from "@angular/router";
 @Component({
   selector: "app-produto",
   templateUrl: "./produto.component.html",
@@ -32,7 +33,5 @@ export class ProdutoComponent {
       );
 
   }
-  public obterNome(): string {
-    return "Sansung";
-  }
-} 
+
+}

@@ -33,6 +33,11 @@ export class NavMenuComponent {
     return this.usuarioServico.usuario_autenticado();
    }
 
+
+  get usuario() {
+    return this.usuarioServico.usuario;
+
+  }
 }
 
 

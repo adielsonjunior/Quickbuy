@@ -31,7 +31,7 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas]},
+      { path: 'produto', component: ProdutoComponent },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent }
       
@@ -42,3 +42,4 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },

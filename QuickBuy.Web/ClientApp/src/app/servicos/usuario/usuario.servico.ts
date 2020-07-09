@@ -25,10 +25,16 @@ export class UsuarioServico {
     return this._usuario;
   }
 
-  constructor(private http: HttpClient,@Inject('BASE_URL') baseUrl: string) {
-    this.baseURL = baseUrl;
+
+  get headers(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
   }
 
+
+
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.baseURL = baseUrl;
+  }
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
     const headers = new HttpHeaders().set('content-type', 'application/json');
     var body = {
@@ -36,7 +42,7 @@ export class UsuarioServico {
       senha: usuario.senha
     }
 
-    return this.http.post<Usuario>(this.baseURL + "api/usuario/VerificarUsuario", body, { headers });
+    return this.http.post<Usuario>(this.baseURL + "api/usuario/VerificarUsuario", body, { headers: this.headers });
 
   }
 
@@ -61,7 +67,7 @@ export class UsuarioServico {
       sobrenome: usuario.sobreNome
     }
 
-    return this.http.post<Usuario>(this.baseURL + "api/usuario", body, { headers });
+    return this.http.post<Usuario>(this.baseURL + "api/usuario", body, { headers: this.headers });
 
   }
 
